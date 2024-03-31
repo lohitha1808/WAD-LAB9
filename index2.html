@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Task2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="GreetingController">
+        <input type="text" ng-model="studentName" placeholder="Enter student's name">
+        <h1>{{ greeting }}, {{ studentName }}</h1>
+    </div>
+
+    <script>
+    var app = angular.module('myApp', []);
+
+    app.controller('GreetingController', function($scope) {
+        $scope.studentName = ''; 
+        $scope.greeting = 'Hello'; 
+
+       
+        $scope.updateGreeting = function() {
+            $scope.greeting = 'Hello'; 
+            if ($scope.studentName.trim() !== '') { 
+                $scope.greeting += ', ' + $scope.studentName; 
+            }
+        };
+    });
+    </script>
+</body>
+</html>
